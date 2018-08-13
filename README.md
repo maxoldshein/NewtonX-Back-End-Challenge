@@ -41,7 +41,7 @@ If the user is successfully added, you will receive a JSON payload back of:
 ```
 The ID (1 in the above JSON data) is assigned automatically by the API and is unique to each user. It is initially set to a value of 1 and is automatically incremented each time a user is added to ensure that no two users have the same unique identifier. It was designed to act similarly to a automatically incremented primary key in an SQL database.
 
-If the user was added with their first name or last name as a blank string ("") or as null (the value of firstName or lastName was not provided in the JSON payload), the JSON payload you receive back will look like:
+If the user was added with their first name or last name as a blank string ("") or as a null (the value of firstName or lastName was not provided in the JSON payload), the JSON payload you receive back will look like:
 ```json
 {
     "id": -1,
