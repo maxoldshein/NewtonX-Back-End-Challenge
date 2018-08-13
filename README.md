@@ -122,11 +122,11 @@ would receive a JSON payload back of:
 ```json
 {
     "id": -1,
-    "firstName": "USER WAS NOT ADDDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!",
-    "lastName": "USER WAS NOT ADDDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!"
+    "firstName": "USER WAS NOT ADDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!",
+    "lastName": "USER WAS NOT ADDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!"
 }
 ```
-The receipt of JSON object with an id value of -1 indicates that there was an error. The description of what went wrong is provided in the firstName and lastName values of the JSON object. In this case, the error is "USER WAS NOT ADDDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!" because either a blank string ("") value or null value (no value in the firstName field or lastName field) was provided in the initial JSON payload sent to the API. When an error is encountered while adding a user, the user in question is not added to the list of current users and is only sent back as a JSON object to indicate that an error was encountered (ID value of -1 and firstName and lastName value of "USER WAS NOT ADDDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!").
+The receipt of JSON object with an id value of -1 indicates that there was an error. The description of what went wrong is provided in the firstName and lastName values of the JSON object. In this case, the error is "USER WAS NOT ADDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!" because either a blank string ("") value or null value (no value in the firstName field or lastName field) was provided in the initial JSON payload sent to the API. When an error is encountered while adding a user, the user in question is not added to the list of current users and is only sent back as a JSON object to indicate that an error was encountered (ID value of -1 and firstName and lastName value of "USER WAS NOT ADDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!").
 
 I also provided error handling in the rare case that the currentId variable in my UserServiceImplemented.java file is not working correctly. To handle such an error, I check to make sure that the the user who is being added does not have a unique identifier that is already in the map of current users. In the case that the user to be added has a unique identifier that is in the map, I would return a JSON object that looks like:
 ```json
