@@ -45,8 +45,8 @@ If the user was added with their first name or last name as a blank string ("") 
 ```json
 {
     "id": -1,
-    "firstName": "USER WAS NOT ADDDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!",
-    "lastName": "USER WAS NOT ADDDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!"
+    "firstName": "USER WAS NOT ADDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!",
+    "lastName": "USER WAS NOT ADDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!"
 }
 ```
 The ID of -1 indicates that there was an error, and the string returned in the first name and last name fields will explain what went wrong. In the case that the JSON payload contains a user with an ID of -1, the user from the JSON payload you originally sent to the API was not added to the list of current users.
