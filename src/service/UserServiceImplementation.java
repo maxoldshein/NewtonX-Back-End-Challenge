@@ -23,7 +23,7 @@ import model.GenericResponse;
 public class UserServiceImplementation implements UserService {
 	//A map of unique identifiers and their represented users to keep track of the current users in the system.
 	private Map<Integer, User> users = new HashMap<Integer, User>();
-	//The variable currentId keeps track of the current unique identifier, so it can assigned to a new user when they are created.
+	//The variable currentId keeps track of the current unique identifier, so it can be assigned to a new user when they are created.
 	private static int currentId = 1;
 	
 	@Override
