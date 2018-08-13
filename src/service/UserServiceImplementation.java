@@ -36,8 +36,8 @@ public class UserServiceImplementation implements UserService {
 		//Due to the error, the user is not added to the current users map.
 		if (user.getFirstName() == "" || user.getLastName() == "" || user.getFirstName() == null || user.getLastName() == null) {
 			user.setId(-1);
-			user.setFirstName("USER WAS NOT ADDDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!");
-			user.setLastName("USER WAS NOT ADDDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!");
+			user.setFirstName("USER WAS NOT ADDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!");
+			user.setLastName("USER WAS NOT ADDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!");
 			
 			//Return the user with an ID of -1 to indicate an error.
 			return user;
@@ -45,6 +45,18 @@ public class UserServiceImplementation implements UserService {
 		
 		//Set the user's ID to the current unique identifier.
 		user.setId(currentId);
+		
+		//This check is to make sure that no two users have the same unique identifier. It is in place to protect againt a case where the currentId variable is not being incremented for some reason.
+		//In the rare case that the currentId already exists in the list of current users, return a user with an ID of -1 to indicate an error.
+		//Due to the error, the user is not added to current users map.
+		if (users.get(user.getId()) != null) {
+			user.setId(-1);
+			user.setFirstName("USER WAS NOT ADDED; USER SPECIFIED  ID ALREADY EXISTS!");
+			user.setLastName("USER WAS NOT ADDED; USER SPECIFIED  ID ALREADY EXISTS!");
+			
+			//Return the user with an ID of -1 to indicate an error.
+			return user;
+		}
 		
 		//Add the user to the map of current users.
 		users.put(currentId, user);
