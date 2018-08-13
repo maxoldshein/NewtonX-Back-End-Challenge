@@ -128,6 +128,16 @@ would receive a JSON payload back of:
 ```
 The receipt of JSON object with an id value of -1 indicates that there was an error. The description of what went wrong is provided in the firstName and lastName values of the JSON object. In this case, the error is "USER WAS NOT ADDDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!" because either a blank string ("") value or null value (no value in the firstName field or lastName field) was provided in the initial JSON payload sent to the API. When an error is encountered while adding a user, the user in question is not added to the list of current users and is only sent back as a JSON object to indicate that an error was encountered (ID value of -1 and firstName and lastName value of "USER WAS NOT ADDDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!").
 
+I also provided error handling in the rare case that the currentId variable in my UserServiceImplemented.java file is not working correctly. To handle such an error, I check to make sure that the the user who is being added does not have a unique identifier that is already in the map of current users. In the case that the user to be added has a unique identifier that is in the map, I would return a JSON object that looks like:
+```json
+{
+    "id": -1,
+    "firstName": "USER WAS NOT ADDED; INVALID ID: USER WITH SPECIFIED ID ALREADY EXISTS!",
+    "lastName": "USER WAS NOT ADDED; INVALID ID: USER WITH SPECIFIED ID ALREADY EXISTS!"
+}
+```
+with an ID value of -1 to indicate that there was an error and that the user was not added because a user with that unique identifier already exists in the map of current users (as explained in the firstName and lastName values). I could only see this error being handled if for some reason the currentId variable is not being incremented correctly. In the case that the issue arises, the uniqueness of the unique identifiers would still be protected.
+
 I did not provide error handling for duplicate first names or last names because of the fact that it is not uncommon for people to have the same first name or last name as other people. For example, "John Smith" could be a name that many users would share, as it a very common name for people to have.
 
 ### 2. Error Handling When Getting A Specific User By Their Unique Identifier.
