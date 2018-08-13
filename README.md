@@ -1,5 +1,5 @@
 # NewtonX-Back-End-Challenge
-Maxwell Oldshein's code submission for the NewtonX Back End Challenge.
+Maxwell Oldshein's code submission for the NewtonX Back End Development Coding Challenge.
 
 ## My Implementation
 To complete the Back End Development coding challenge, I created a RESTful API that implements some CRUD operations with RESTEasy. The operations that I implemented were adding a user by sending the API a JSON payload containing the user's first name and last name (the user is assigned a unique identifier by the API and the user is sent back as a JSON object to confirm their addition), the ability to get a specific user by their unique identifier, and the ability to get a list of all the current user's from the API as JSON data.
