@@ -23,7 +23,7 @@ and received a JSON object back of
 to verify that the API was working correctly.
 
 ## How To Interact With The RESTful API:
-### 1. How To Add A User
+### 1. How To Add A User.
 To add a user, you must follow the path of http://localhost:8080/NewtonXBackEndChallenge/user/add and send a POST request with a JSON payload containing the user's first name and last name. For example:
 ```json
 {
@@ -51,7 +51,7 @@ If the user was added with their first name or last name as a blank string ("") 
 ```
 The ID of -1 indicates that there was an error, and the string returned in the first name and last name fields will explain what went wrong. In the case that the JSON payload contains a user with an ID of -1, the user from the JSON payload you originally sent to the API was not added to the list of current users.
 
-### 2. How To Get A Specific User
+### 2. How To Get A Specific User.
 To get a specific user, you must follow the path of http://localhost:8080/NewtonXBackEndChallenge/user/{id}/get and send a GET request, where {id} is the unique identifier of the specific user that you wish to retrieve. From the above example, to get the user that we added, we would follow the path of http://localhost:8080/NewtonXBackEndChallenge/user/1/get and send a GET request. This would return a JSON payload of the specific user with the unique identifier you provided. For example:
 ```json
 {
@@ -126,7 +126,7 @@ would receive a JSON payload back of:
     "lastName": "USER WAS NOT ADDDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!"
 }
 ```
-The receipt of JSON object with an id value of -1 indicates that there was an error. The description of what went wrong is provided in the firstName and lastName values of the JSON object. In this case, the error is "USER WAS NOT ADDDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!" because either a blank string ("") value or null value (no value in the firstName field or lastName field) was provided in the initial JSON payload sent to the API.
+The receipt of JSON object with an id value of -1 indicates that there was an error. The description of what went wrong is provided in the firstName and lastName values of the JSON object. In this case, the error is "USER WAS NOT ADDDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!" because either a blank string ("") value or null value (no value in the firstName field or lastName field) was provided in the initial JSON payload sent to the API. When an error is encountered while adding a user, the user in question is not added to the list of current users and is only sent back as a JSON object to indicate that an error was encountered (ID value of -1 and firstName and lastName value of "USER WAS NOT ADDDED; INVALID NAME: FIRST OR LAST NAME NOT PROVIDED!").
 
 I did not provide error handling for duplicate first names or last names because of the fact that it is not uncommon for people to have the same first name or last name as other people. For example, "John Smith" could be a name that many users would share, as it a very common name for people to have.
 
