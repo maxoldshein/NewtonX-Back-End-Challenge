@@ -103,7 +103,7 @@ To get a list of all the current users, you must follow the path of http://local
 ```
 
 ## Error Handling
-I added error handling to the operations of adding a user with a JSON payload and getting a user by their unique identifier. To indicate that an error was encountered, I return a JSON object with an ID value of -1. 
+I added error handling to the operations of adding a user with a JSON payload and getting a user by their unique identifier. To indicate that an error was encountered, I return a JSON object with an ID value of -1 and explain what went wrong by setting the first name and last name values to a string that describes the error that occured. 
 ### 1. Error Handling When Adding A User.
 In the case of adding a user, I return an error if a user is added with a blank string ("") value or null value (the value of the firstName or lastName field was not provided) in the fistName field or the lastName field of the JSON payload sent to the API. For example, sending a JSON payload of:
 ```json
