@@ -51,8 +51,8 @@ public class UserServiceImplementation implements UserService {
 		//Due to the error, the user is not added to current users map.
 		if (users.get(user.getId()) != null) {
 			user.setId(-1);
-			user.setFirstName("USER WAS NOT ADDED; USER SPECIFIED  ID ALREADY EXISTS!");
-			user.setLastName("USER WAS NOT ADDED; USER SPECIFIED  ID ALREADY EXISTS!");
+			user.setFirstName("USER WAS NOT ADDED; INVALID ID: USER WITH SPECIFIED ID ALREADY EXISTS!");
+			user.setLastName("USER WAS NOT ADDED; INVALID ID: USER WITH SPECIFIED ID ALREADY EXISTS!");
 			
 			//Return the user with an ID of -1 to indicate an error.
 			return user;
